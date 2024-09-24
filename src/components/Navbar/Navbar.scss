@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Oxanium:700%7CVollkorn:400');
+
+/* Variables du nuancier */
+$primary-blue: #4A90E2;
+$dark-purple: #6A0DAD;
+$light-lavender: #B19CD9;
+$light-blue: #ADD8E6;
+$neutral-gray: #F0F0F5;
+
+/* Styles globaux */
+body {
+  font-family: 'Vollkorn', serif;
+  background-color: $neutral-gray;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Oxanium', sans-serif;
+}
+
+/* Barre de navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $primary-blue;
+  padding: 20px;
+  z-index: 1000;
+
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+
+    li a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        color: $light-lavender;
+      }
+    }
+  }
+}

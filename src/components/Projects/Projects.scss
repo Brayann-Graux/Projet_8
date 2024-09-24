@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Oxanium:700%7CVollkorn:400');
+
+/* Variables du nuancier */
+$primary-blue: #4A90E2;
+$dark-purple: #6A0DAD;
+$light-lavender: #B19CD9;
+$light-blue: #ADD8E6;
+$neutral-gray: #F0F0F5;
+
+/* Styles globaux */
+body {
+  font-family: 'Vollkorn', serif;
+  background-color: $neutral-gray;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Oxanium', sans-serif;
+}
+
+/* Section Projets */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  .btn {
+    background-color: $primary-blue;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    &:hover {
+      background-color: $dark-purple;
+    }
+  }
+}
