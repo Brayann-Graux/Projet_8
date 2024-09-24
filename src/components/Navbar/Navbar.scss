@@ -7,6 +7,10 @@ $light-lavender: #B19CD9;
 $light-blue: #ADD8E6;
 $neutral-gray: #F0F0F5;
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Styles globaux */
 body {
   font-family: 'Vollkorn', serif;
@@ -37,6 +41,10 @@ h1, h2, h3, h4, h5 {
     li a {
       color: white;
       text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+      cursor: pointer;  /* Affiche la main au survol */
       &:hover {
         color: $light-lavender;
       }

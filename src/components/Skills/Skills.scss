@@ -1,18 +1,36 @@
-@import url('https://fonts.googleapis.com/css?family=Oxanium:700%7CVollkorn:400');
-
-/* Variables du nuancier */
-$primary-blue: #4A90E2;
-$dark-purple: #6A0DAD;
-$light-lavender: #B19CD9;
-$light-blue: #ADD8E6;
-$neutral-gray: #F0F0F5;
-
-/* Styles globaux */
-body {
-  font-family: 'Vollkorn', serif;
-  background-color: $neutral-gray;
+/* Section des compétences */
+.skills-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-h1, h2, h3, h4, h5 {
+.skill-badge {
+  background-color: #4A90E2;  /* Couleur de fond du "bouton" */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;  /* Bordure arrondie pour ressembler à un bouton */
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: 'Vollkorn', serif;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Ombre légère */
+  transition: background-color 0.3s ease;
+
+  /* Effet au survol pour rendre l'apparence dynamique */
+  &:hover {
+    background-color: #357ABD;  /* Couleur au survol */
+  }
+}
+
+/* Style pour le titre */
+h2 {
+  font-size: 2.5rem;
+  color: #4A90E2;
+  text-align: center;
   font-family: 'Oxanium', sans-serif;
 }

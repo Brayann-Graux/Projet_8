@@ -10,16 +10,17 @@ const Profile = () => {
         <img src={img_profil} alt="Brayann" className="profile-image" />
 
         <div className="profile-text">
-          <h1>Brayann Graux</h1>
+          <div className="profile-header">
+            <h1>Brayann Graux</h1>
+            {/* Bouton pour télécharger le CV */}
+            <a href="/files/cv-brayann-graux.pdf" download="Brayann-Graux-CV.pdf" className="btn-download-cv">
+              Télécharger mon CV
+            </a>
+          </div>
           <p>
             Développeur Web Full-Stack passionné par la création de solutions modernes et élégantes, 
             mais également passionné de photographie.
           </p>
-          
-          {/* Bouton pour télécharger le CV */}
-          <a href="/files/cv-brayann-graux.pdf" download="Brayann-Graux-CV.pdf" className="btn-download-cv">
-            Télécharger mon CV
-          </a>
         </div>
       </div>
     </section>
