@@ -1,0 +1,89 @@
+/* Variables pour la palette de couleurs */
+$primary-color: #4A90E2;
+$secondary-color: #ADD8E6;
+$background-color: #f4f4f9;
+$button-bg-color: $primary-color;
+$button-hover-color: darken($primary-color, 10%);
+$text-color: #333;
+$input-border-color: #ddd;
+$input-focus-color: $primary-color;
+$font-family: 'Vollkorn', serif;
+
+
+/* Section de contact */
+#contact {
+  background-color: $background-color;
+  padding: 50px 20px;
+  max-width: 800px; /* Limite la largeur du formulaire */
+  margin: 0 auto; /* Centre le formulaire */
+  
+  h2 {
+    font-size: 2.5rem;
+    color: $primary-color;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Oxanium', sans-serif;
+  }
+
+  /* Ajuster le bouton "Envoyer" */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  
+    input, textarea {
+      width: 100%;
+      padding: 15px;
+      font-size: 1rem;
+      border: 2px solid $input-border-color;
+      border-radius: 5px;
+      font-family: $font-family;
+      resize: none; /* Désactive le redimensionnement du textarea */
+      transition: border-color 0.3s ease;
+  
+      &:focus {
+        outline: none;
+        border-color: $input-focus-color;
+      }
+    }
+  
+    textarea {
+      height: 150px; /* Taille par défaut du textarea */
+    }
+  
+    .btn {
+      background-color: $button-bg-color;
+      color: white;
+      padding: 15px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%; /* Le bouton prend toute la largeur du formulaire */
+      max-width: 300px; /* Limite la largeur maximale du bouton */
+      margin: 0 auto; /* Centre le bouton dans le formulaire */
+  
+      &:hover {
+        background-color: $button-hover-color;
+      }
+    }
+  }
+}
+
+/* Responsive design pour les petits écrans */
+@media (max-width: 768px) {
+  #contact {
+    padding: 40px 10px;
+
+    form {
+      input, textarea {
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        font-size: 1rem;
+      }
+    }
+  }
+}

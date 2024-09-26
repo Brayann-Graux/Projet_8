@@ -1,31 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import projectsData from '../../data/projects.json';  // Importer les données JSON
+import './Projects.scss';  // Importer les styles SCSS
 
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
-
-  // Charger les données JSON depuis le fichier
-  useEffect(() => {
-    fetch('/assets/projects.json')
-      .then((response) => response.json())
-      .then((data) => setProjects(data))
-      .catch((error) => console.error('Erreur lors du chargement des projets :', error));
-  }, []);
-
   return (
-    <section id="projects" className="section">
+    <section id="projects" className="projects-section">
       <h2>Mes Projets</h2>
       <div className="projects-container">
-        {projects.length > 0 ? (
-          projects.map((project, index) => (
-            <div key={index} className="project-card">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn">Voir le projet</a>
+        {projectsData.map((project) => (
+          <div key={project.id} className="project-card">
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+
+            {/* Affichage de plusieurs langages sous forme de boutons */}
+            <div className="project-languages">
+              {project.languages.map((language, index) => (
+                <span key={index} className="project-language">{language}</span>
+              ))}
             </div>
-          ))
-        ) : (
-          <p>Chargement des projets...</p>
-        )}
+
+            <img src={project.image} alt={project.title} className="project-image" />
+
+            {/* Conteneur pour les boutons */}
+            <div className="btn-container">
+              {/* Bouton pour afficher le code sur GitHub, aligné à gauche */}
+              <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="btn github-btn">
+                Voir le code sur GitHub
+              </a>
+
+              {/* Condition pour afficher le bouton "Voir le projet" seulement si projectLink est disponible, aligné à droite */}
+              {project.projectLink && (
+                <a href={project.projectLink} target="_blank" rel="noopener noreferrer" className="btn">
+                  Voir le projet
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

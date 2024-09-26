@@ -7,10 +7,22 @@ $light-lavender: #B19CD9;
 $light-blue: #ADD8E6;
 $neutral-gray: #F0F0F5;
 
-/* Styles globaux */
+/* Conteneur global */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Reset et base pour tout le site */
 body {
   font-family: 'Vollkorn', serif;
-  background-color: $neutral-gray;
+  background-color: $neutral-gray; /* Fond gris neutre */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Empêche le défilement horizontal */
 }
 
 h1, h2, h3, h4, h5 {
