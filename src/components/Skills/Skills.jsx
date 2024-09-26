@@ -19,7 +19,12 @@ const Skills = () => {
       <h2>Les Compétences Acquises</h2>
       <div className="skills-container">
         {skills.map((skill, index) => (
-          <span key={index} className="skill-badge">
+          <span 
+            key={index} 
+            className="skill-badge" 
+            data-aos="fade-up-right" 
+            data-aos-delay={index * 100} // Applique un délai basé sur l'index
+          >
             {skill}
           </span>
         ))}
