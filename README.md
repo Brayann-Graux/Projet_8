@@ -13,7 +13,7 @@ Egalement le site créer lors de ce projet, va etre de pouvoir mettre en ligne c
 ### Les Skills (Compétences)
 ![alt text](imagesReadMe/Skills.png)
 ### Les Projet
-![alt text](imagesReadMe/project.png)
+![alt text](imagesReadMe/Project.png)
 ### La Fiche Contact
 ![alt text](imagesReadMe/Contact.png)
 ### Le Copyright
