@@ -9,21 +9,21 @@ $neutral-gray: #F0F0F5;
 
 /* Conteneur global */
 .container {
-  max-width: 1440px;   /* Limiter la largeur maximale à 1440px */
-  margin: 0 auto;      /* Centrer le contenu */
-  padding: 0 20px;     /* Ajouter un peu de padding pour éviter que le contenu touche les bords de l'écran */
-  box-sizing: border-box; /* S'assurer que le padding est inclus dans la taille totale de l'élément */
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-/* Style global */
-html, body {
+/* Reset et base pour tout le site */
+body {
+  font-family: 'Vollkorn', serif;
+  background-color: $neutral-gray; /* Fond gris neutre */
   margin: 0;
   padding: 0;
-  overflow-x: hidden;  /* Empêcher le défilement horizontal */
   box-sizing: border-box;
-  width: 100%;
+  overflow-x: hidden; /* Empêche le défilement horizontal */
 }
-
 
 h1, h2, h3, h4, h5 {
   font-family: 'Oxanium', sans-serif;

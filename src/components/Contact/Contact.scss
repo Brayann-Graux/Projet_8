@@ -14,8 +14,8 @@ $font-family: 'Vollkorn', serif;
 #contact {
   background-color: $background-color;
   padding: 50px 20px;
+  max-width: 800px; /* Limite la largeur du formulaire */
   margin: 0 auto; /* Centre le formulaire */
-  width: 100%;
   
   h2 {
     font-size: 2.5rem;
@@ -30,7 +30,6 @@ form {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 50%;
   
     input, textarea {
       width: 100%;

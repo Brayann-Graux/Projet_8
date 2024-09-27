@@ -3,23 +3,29 @@ import "./Navbar.scss";
 import { Link } from 'react-scroll';
 
 const Navbar = () => {
-  const navItems = [
-    { id: 'profile', label: 'Profil' },
-    { id: 'skills', label: 'Compétences' },
-    { id: 'projects', label: 'Projets' },
-    { id: 'contact', label: 'Contact' },
-  ];
-
   return (
     <nav className="navbar">
       <ul>
-        {navItems.map((item, index) => (
-          <li key={item.id} data-aos="flip-left" data-aos-delay={index * 100}>
-            <Link to={item.id} smooth={true} duration={500}>
-              {item.label}
-            </Link>
-          </li>
-        ))}
+        <li>
+          <Link to="profile" smooth={true} duration={500}>
+            Profil
+          </Link>
+        </li>
+        <li>
+          <Link to="skills" smooth={true} duration={500}>
+            Compétences
+          </Link>
+        </li>
+        <li>
+          <Link to="projects" smooth={true} duration={500}>
+            Projets
+          </Link>
+        </li>
+        <li>
+          <Link to="contact" smooth={true} duration={500}>
+            Contact
+          </Link>
+        </li>
       </ul>
     </nav>
   );

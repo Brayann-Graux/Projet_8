@@ -7,51 +7,38 @@ $light-lavender: #B19CD9;
 $light-blue: #ADD8E6;
 $neutral-gray: #F0F0F5;
 
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
 /* Barre de navigation */
 .navbar {
   position: fixed;
+  width: 100%;
   top: 0;
-  width: 100%; /* La navbar prend toute la largeur de la fenêtre */
-  max-width: 100vw; /* Empêche la navbar de déborder au-delà de la largeur de l'écran */
-  background-color: $primary-blue; /* Utilise ta variable pour la couleur de fond */
+  background-color: $primary-blue;
   padding: 20px;
   z-index: 1000;
   display: flex;
-  justify-content: center; /* Centre le contenu horizontalement */
+  justify-content: center; /* Centre les éléments de la barre */
 
   ul {
     list-style: none;
     display: flex;
-    gap: 30px; /* Espace entre les éléments de la liste */
+    gap: 30px; /* Espacement entre les éléments */
     margin: 0;
     padding: 0;
 
-    li {
-      margin: 0;
-      padding: 0;
-      a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1.2rem;
-        transition: color 0.3s ease;
-        cursor: pointer;
-
-        &:hover {
-          color: $light-lavender;
-        }
+    li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+      cursor: pointer; /* Affiche la main au survol */
+      
+      &:hover {
+        color: $light-lavender;
       }
     }
   }
 }
-
 
 
 
