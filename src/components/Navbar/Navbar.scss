@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Oxanium:700%7CVollkorn:400');
+@import'../../styles/Variables.scss';
 
 /* Variables du nuancier */
 $primary-blue: #4A90E2;
@@ -11,9 +11,10 @@ $neutral-gray: #F0F0F5;
 .navbar {
   position: fixed;
   width: 100%;
+  max-width: 1440px;
   top: 0;
   background-color: $primary-blue;
-  padding: 20px;
+  padding: 20px 0;
   z-index: 1000;
   display: flex;
   justify-content: center; /* Centre les éléments de la barre */

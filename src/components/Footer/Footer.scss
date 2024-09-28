@@ -1,26 +1,10 @@
-/* Variables pour la palette de couleurs */
-$primary-color: #4A90E2;
-$secondary-color: #ADD8E6;
-$background-color: #f4f4f9;
-$button-bg-color: $primary-color;
-$button-hover-color: darken($primary-color, 10%);
-$text-color: #333;
-$input-border-color: #ddd;
-$input-focus-color: $primary-color;
-$font-family: 'Vollkorn', serif;
-
-.container {
-  max-width: 1440px; /* Limite la largeur à 1440px */
-  align-items: center;
-  margin: 0 auto; /* Centre le contenu horizontalement */
-  padding: 0 20px; /* Ajoute un peu de padding sur les côtés pour éviter que le contenu ne colle aux bords sur les petits écrans */
-}
+@import'../../styles/Variables.scss';
 
 .footer {
   background-color: $primary-color; /* Remplace $primary-blue par une valeur de couleur réelle */
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 20px 0;
   font-size: 0.9rem;
   position: relative;
   bottom: 0;

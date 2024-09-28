@@ -1,134 +1,157 @@
-/* Variables de couleurs */
-$primary-color: #4A90E2;
-$secondary-color: #ADD8E6;
-$text-color: #333;
-$violet-color: #800080; /* Couleur violette pour les boutons de langage */
-$violet-hover-color: lighten($violet-color, 20%); /* Violet éclairci au survol */
-$background-color: #f4f4f9;
-$card-shadow-color: rgba(0, 0, 0, 0.1);
-$hover-color: #357ABD;
-$font-family: 'Vollkorn', serif;
+@import'../../styles/Variables.scss';
 
-/* Section globale pour les projets */
+/* Projets */
 .projects-section {
-  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
   background-color: $background-color;
 
   h2 {
-    font-size: 2.5rem;
-    color: $primary-color;
-    text-align: center;
-    font-family: 'Oxanium', sans-serif;
     margin-bottom: 40px;
+    color: $primary-color;
   }
 
   .projects-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colonnes pour 3 cartes */
-    gap: 40px; /* Espacement entre les cartes */
-    justify-content: center;
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1440px;
     margin: 0 auto;
   }
 
-  /* Responsive styles */
-  @media (max-width: 1024px) {
-    .projects-container {
-      grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur les écrans plus petits */
-    }
-  }
-
-  @media (max-width: 768px) {
-    .projects-container {
-      grid-template-columns: 1fr; /* 1 colonne sur les petits écrans */
-    }
-  }
-}
-
-/* Style des cartes de projet */
-.project-card {
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0px 4px 10px $card-shadow-color;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Espace entre le contenu et les boutons */
-  height: 100%; /* Assure que la carte occupe toute la hauteur disponible */
-  padding: 10px;
-
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 8px 20px $card-shadow-color;
-  }
-
-  h3 {
-    font-size: 1.8rem;
-    color: $primary-color;
-    font-family: 'Oxanium', sans-serif;
-  }
-
-  p {
-    color: $text-color;
-    font-size: 1.2rem;
-  }
-
-  .project-languages {
+  .project-card {
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-
-  }
-
-  .project-language {
-    background-color: $violet-color;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    margin: 5px;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: $violet-hover-color;
-    }
-  }
-
-  .project-image {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px $card-shadow-color;
     width: 100%;
-    object-fit: cover;
-    margin: 20px 0;
-  }
-
-  .btn-container {
-    display: flex;
+    max-width: 900px; /* Largeur de la carte */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     justify-content: space-between;
-    margin-top: auto; /* Pousse les boutons vers le bas */
-  }
-
-  .btn {
-    background-color: $primary-color;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    align-items: center;
 
     &:hover {
-      background-color: $hover-color;
+      transform: scale(1.05); /* Zoom au survol */
+      box-shadow: 0 6px 12px $card-shadow-color;
     }
-  }
 
-  .github-btn {
-    background-color: #333;
+    &:hover .overlay {
+      opacity: 1; /* Affiche le texte au survol */
+    }
 
-    &:hover {
-      background-color: #555;
+    .project-image-container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      transition: width 0.5s ease, height 0.5s ease;
+
+      &.full {
+        width: 100%;
+        height: 400px;
+      }
+
+      &.reduced {
+        width: 50%;
+        height: 300px;
+      }
+
+      .project-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0; /* Caché par défaut */
+        transition: opacity 0.3s ease;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 10px;
+
+        h3 {
+          margin: 0;
+          font-size: 1.5rem;
+        }
+
+        p {
+          margin: 10px 0 0 0;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .project-info {
+      display: block;
+      padding-left: 20px;
+      width: 45%;
+      text-align: left;
+
+      h3 {
+        color: $primary-color;
+      }
+
+      p {
+        color: $text-color;
+      }
+
+      .project-languages {
+        margin: 10px 0;
+
+        .project-language {
+          background-color: $violet-color;
+          color: white;
+          padding: 5px 10px;
+          border-radius: 5px;
+          margin-right: 5px;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: $violet-hover-color;
+          }
+        }
+      }
+
+      .btn-container {
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+
+        .btn {
+          background-color: $primary-color;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
+          text-decoration: none;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: $hover-color;
+          }
+        }
+
+        .github-btn {
+          background-color: $carbon-black;
+        }
+      }
     }
   }
 }

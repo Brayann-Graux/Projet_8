@@ -1,18 +1,15 @@
-/* Variables de couleurs */
-$primary-color: #4A90E2;
-$hover-color: #357ABD;
-$background-color: #ADD8E6;
-$text-color: #333;
-$font-family: 'Vollkorn', serif;
+@import'../../styles/Variables.scss';
 
 /* Styles de la section profil */
 .profile-section {
   background-color: $background-color;
-  padding: 50px 20px;
+  padding: 50px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 30vh;
+  width: 100%;
+  max-width: 1440px;
 
   .profile-content {
     display: flex;
