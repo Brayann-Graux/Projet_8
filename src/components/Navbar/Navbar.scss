@@ -1,11 +1,4 @@
-@import'../../styles/Variables.scss';
-
-/* Variables du nuancier */
-$primary-blue: #4A90E2;
-$dark-purple: #6A0DAD;
-$light-lavender: #B19CD9;
-$light-blue: #ADD8E6;
-$neutral-gray: #F0F0F5;
+@import '../../styles/Variables.scss';
 
 /* Barre de navigation */
 .navbar {
@@ -17,7 +10,7 @@ $neutral-gray: #F0F0F5;
   padding: 20px 0;
   z-index: 1000;
   display: flex;
-  justify-content: center; /* Centre les éléments de la barre */
+  justify-content: center;
 
   ul {
     list-style: none;
@@ -32,8 +25,8 @@ $neutral-gray: #F0F0F5;
       font-weight: bold;
       font-size: 1.2rem;
       transition: color 0.3s ease;
-      cursor: pointer; /* Affiche la main au survol */
-      
+      cursor: pointer;
+
       &:hover {
         color: $light-lavender;
       }
@@ -41,30 +34,9 @@ $neutral-gray: #F0F0F5;
   }
 }
 
-
-
 /* Media queries pour les petits écrans */
-@media (max-width: 768px) {
-  .navbar ul {
-    flex-direction: column; /* Empile les liens verticalement sur les petits écrans */
-    gap: 15px; /* Réduit l'espacement entre les éléments sur les petits écrans */
-  }
-
-  .navbar li a {
-    font-size: 1rem; /* Réduit la taille de la police sur les petits écrans */
-  }
-}
-
 @media (max-width: 480px) {
   .navbar {
-    padding: 10px 0; /* Réduit le padding sur les petits écrans */
-  }
-
-  .navbar li a {
-    font-size: 0.9rem; /* Réduit encore la taille de la police pour les très petits écrans */
-  }
-
-  .navbar ul {
-    gap: 10px; /* Réduit encore l'espacement entre les liens */
+    display: none; /* Cache complètement la barre de navigation */
   }
 }

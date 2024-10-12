@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import projectsData from '../../data/projects.json';
-import './Projects.scss';
+import projectsData from '../../data/projects.json'; // Assure-toi que ton fichier JSON est bien importé
+import './Projects.scss';  // Assure-toi d'importer le fichier CSS/SCSS
 
 const Projects = () => {
-  const [selectedProjectId, setSelectedProjectId] = useState(null);
+  const [activeProject, setActiveProject] = useState(null); // État pour suivre quel projet est actuellement ouvert
 
-  const handleClick = (projectId) => {
-    if (selectedProjectId === projectId) {
-      setSelectedProjectId(null); // Ferme la carte si elle est déjà ouverte
+  // Fonction pour gérer le clic sur une carte
+  const toggleProject = (projectId) => {
+    if (activeProject === projectId) {
+      setActiveProject(null); // Si la carte est déjà ouverte, on la ferme
     } else {
-      setSelectedProjectId(projectId); // Ouvre la carte cliquée
+      setActiveProject(projectId); // Ouvrir la carte cliquée
     }
   };
 
@@ -18,45 +19,30 @@ const Projects = () => {
       <h2>Mes Projets</h2>
       <div className="projects-container">
         {projectsData.map((project) => (
-          <div
-            key={project.id}
-            className={`project-card ${selectedProjectId === project.id ? 'show' : ''}`}
-            onClick={() => handleClick(project.id)}
+          <div 
+            key={project.id} 
+            className={`project-card ${activeProject === project.id ? 'active' : ''}`} 
+            onClick={() => toggleProject(project.id)}
           >
-            <div className={`project-image-container ${selectedProjectId === project.id ? 'reduced' : 'full'}`}>
-              <img src={project.image} alt={project.title} className="project-image" />
-              <div className="overlay">
-                <h3>{project.title}</h3>
-                <p>Afficher plus</p>
-              </div>
-            </div>
-
-            {selectedProjectId === project.id && (
-              <div className="project-info">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-
-                <div className="project-languages">
-                  {project.languages.map((language, index) => (
-                    <span key={index} className="project-language">
-                      {language}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="btn-container">
-                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="btn github-btn">
-                    Voir le code sur GitHub
-                  </a>
-
-                  {project.projectLink && (
-                    <a href={project.projectLink} target="_blank" rel="noopener noreferrer" className="btn project-btn">
-                      Voir le projet
+            <img src={project.image} alt={project.title} className="project-image" />
+            <div className="project-info">
+              <h3>{project.title}</h3>
+              {activeProject === project.id && (
+                <div className="project-details">
+                  <p>{project.description}</p>
+                  <div className="btn-container">
+                    <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="btn github-btn">
+                      Voir le code sur GitHub
                     </a>
-                  )}
+                    {project.projectLink && (
+                      <a href={project.projectLink} target="_blank" rel="noopener noreferrer" className="btn">
+                        Voir le projet
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         ))}
       </div>
