@@ -17,9 +17,9 @@
 
   .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille fluide */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Grille fluide */
     gap: 30px; /* Espace entre les cartes */
-    max-width: 1440px;
+    max-width: 1200px; /* Taille maximale de la grille */
     margin: 0 auto;
     padding: 20px;
   }
@@ -35,6 +35,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 400px; /* Taille maximale pour chaque carte */
+    width: 100%; /* Assurez-vous que les cartes utilisent tout l'espace disponible */
     
     &:hover {
       transform: scale(1.05); /* Zoom au survol */
@@ -57,14 +59,12 @@
         color: $primary-color;
       }
 
-      /* Masquer les détails du projet tant que la carte n'est pas ouverte */
       .project-details {
         margin-top: 15px;
         display: none; /* Masqué par défaut */
         text-align: left;
       }
 
-      /* Afficher les détails si la carte est active */
       .project-card.active .project-details {
         display: block;
       }
@@ -98,13 +98,31 @@
 /* Media queries pour ajuster le nombre de cartes par ligne */
 @media (max-width: 1024px) {
   .projects-container {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 ou 3 cartes par ligne */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adaptation fluide pour les tablettes */
+  }
+
+  .project-card {
+    max-width: 100%; /* Permet aux cartes d'utiliser plus d'espace sur les tablettes */
   }
 }
 
 @media (max-width: 768px) {
   .projects-container {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* Une seule carte par ligne */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Transition fluide entre tablette et smartphone */
+  }
+
+  .project-card {
+    max-width: 100%; /* S'assurer que les cartes utilisent toute la largeur disponible */
+  }
+
+  .project-image {
+    height: 150px; /* Ajuster la hauteur de l'image pour les petits écrans */
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-container {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* Une seule carte par ligne sur les smartphones */
   }
 
   .project-image {
