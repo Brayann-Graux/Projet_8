@@ -1,4 +1,4 @@
-@import'../../styles/Variables.scss';
+@import '../../styles/Variables.scss';
 
 /* Styles de la section profil */
 .profile-section {
@@ -57,13 +57,54 @@
       color: white;
       padding: 10px 20px;
       text-decoration: none;
-      border-radius: 20px;
+      border-radius: 15px;
       font-weight: bold;
       transition: background-color 0.3s ease;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 
       &:hover {
         background-color: $hover-color;
+      }
+    }
+  }
+}
+
+/* Media queries pour les smartphones */
+@media (max-width: 480px) {
+  .profile-section {
+    padding: 30px 0;
+
+    .profile-content {
+      flex-direction: column; /* Empile l'image et le texte verticalement */
+      text-align: center; /* Centre le texte pour mobile */
+    }
+
+    .profile-image {
+      margin: 0 auto 20px auto; /* Centrer l'image et ajouter un espace en bas */
+      width: 150px;
+      height: 150px;
+    }
+
+    .profile-text {
+      .profile-header {
+        flex-direction: column; /* Empiler le nom et le bouton de CV */
+        align-items: center;
+
+        h1 {
+          font-size: 2rem; /* Réduire la taille de police pour mobile */
+          margin-right: 0;
+          margin-bottom: 10px; /* Ajouter de l'espace entre le nom et le bouton */
+        }
+      }
+
+      p {
+        font-size: 1rem; /* Réduire la taille de police */
+        margin-top: 10px;
+      }
+
+      .btn-download-cv {
+        padding: 8px 16px; /* Réduire la taille du bouton */
+        border-radius: 15px;
       }
     }
   }

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './Navbar.scss';
-import { Link } from 'react-scroll'; // Utilisation de react-scroll pour une navigation fluide
+import { Link } from 'react-scroll';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false); // État pour gérer l'ouverture du menu burger
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen); // Inverser l'état pour afficher ou cacher le menu
+    setIsOpen(!isOpen);
   };
 
   const navItems = [

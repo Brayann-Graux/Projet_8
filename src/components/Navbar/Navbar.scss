@@ -11,11 +11,49 @@
   z-index: 1000;
   display: flex;
   justify-content: center;
+  align-items: center;
 
-  ul {
+  /* Menu Burger - caché par défaut */
+  .burger-menu {
+    display: none; /* Caché par défaut */
+    cursor: pointer;
+    position: absolute;
+    z-index: 1001; /* Toujours au-dessus des autres éléments */
+    
+    .burger-icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 20px;
+
+      span {
+        background-color: $hover-color;
+        height: 3px;
+        width: 25px;
+        margin: 3px 0;
+        transition: all 0.3s ease;
+      }
+
+      &.open {
+        span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        span:nth-child(2) {
+          opacity: 0;
+        }
+        span:nth-child(3) {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+      }
+    }
+  }
+
+  .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px; /* Espacement entre les éléments */
+    gap: 30px;
     margin: 0;
     padding: 0;
 
@@ -34,9 +72,35 @@
   }
 }
 
-/* Media queries pour les petits écrans */
+/* Media queries pour smartphones seulement */
 @media (max-width: 480px) {
   .navbar {
-    display: none; /* Cache complètement la barre de navigation */
+    justify-content: center; /* Centrer le contenu */
+    padding: 0;
+
+    .burger-menu {
+      display: flex; /* Afficher le menu burger uniquement sur les smartphones */
+      position: fixed; /* Fixer la position pour centrer */
+      top: 10px; /* Ajuster selon le design */
+      left: 50%;
+      transform: translateX(-50%); /* Centrer horizontalement */
+    }
+
+    .nav-links {
+      display: none; /* Masquer la liste de navigation par défaut */
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background-color: $primary-blue;
+      width: 100%;
+      text-align: center;
+      gap: 10px;
+      padding: 8px 0;
+    }
+
+    .nav-links.active {
+      display: flex; /* Afficher la navigation si le menu est activé */
+    }
   }
 }
