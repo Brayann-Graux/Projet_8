@@ -17,11 +17,12 @@
 
   .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Grille fluide */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Utilisation de auto-fit et minmax */
     gap: 30px; /* Espace entre les cartes */
     max-width: 1200px; /* Taille maximale de la grille */
+    width: calc(100% - 60px); /* Prend toute la largeur avec une marge de 30px à gauche et à droite */
+    padding: 20px 0; /* Ajoute du padding en haut et en bas */
     margin: 0 auto;
-    padding: 20px;
   }
 
   .project-card {
@@ -35,43 +36,55 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%; /* Prend toute la largeur disponible */
+    height: 300px; /* Ajustez selon vos besoins */
     max-width: 400px; /* Taille maximale pour chaque carte */
-    width: 100%; /* Assurez-vous que les cartes utilisent tout l'espace disponible */
     
     &:hover {
       transform: scale(1.05); /* Zoom au survol */
       box-shadow: 0 6px 12px $card-shadow-color;
+
+      .project-info {
+        opacity: 1; /* Afficher les détails au survol */
+        visibility: visible;
+      }
     }
 
     .project-image {
       width: 100%;
-      height: 200px;
+      height: 100%;
       object-fit: cover;
-      border-radius: 10px 10px 0 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
     }
 
     .project-info {
-      padding: 20px;
-      text-align: center;
+      position: absolute;
+      bottom: 0;
       width: 100%;
-      
-      h3 {
-        color: $primary-color;
-      }
+      text-align: left;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      opacity: 0; /* Masqué par défaut */
+      visibility: hidden; /* Masqué par défaut */
+      z-index: 2;
 
       .project-details {
-        margin-top: 15px;
-        display: none; /* Masqué par défaut */
-        text-align: left;
-      }
-
-      .project-card.active .project-details {
         display: block;
+        text-align: left;
+        font-size: 0.9em;
+        margin-top: 10px;
       }
 
       .btn-container {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column; /* Empile les boutons verticalement */
+        align-items: flex-start;
+        gap: 10px;
         margin-top: 20px;
 
         .btn {
@@ -83,14 +96,31 @@
           transition: background-color 0.3s ease;
 
           &:hover {
-            background-color: darken($primary-color, 10%);
+            background-color: lighten($primary-color, 10%);
           }
         }
 
         .github-btn {
           background-color: #333; /* Bouton GitHub noir */
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: lighten(#333, 10%); /* Éclaircir la couleur noire */
+          }
         }
       }
+    }
+
+    .project-name {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      z-index: 3;
+      color: white;
+      font-size: 1.2em;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 5px 10px;
+      border-radius: 5px;
     }
   }
 }
@@ -98,7 +128,7 @@
 /* Media queries pour ajuster le nombre de cartes par ligne */
 @media (max-width: 1024px) {
   .projects-container {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adaptation fluide pour les tablettes */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adaptation fluide pour les tablettes */
   }
 
   .project-card {
@@ -108,7 +138,7 @@
 
 @media (max-width: 768px) {
   .projects-container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Transition fluide entre tablette et smartphone */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Transition fluide entre tablette et smartphone */
   }
 
   .project-card {

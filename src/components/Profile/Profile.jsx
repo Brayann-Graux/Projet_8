@@ -19,7 +19,7 @@ const Profile = () => {
           </div>
           <p>
             Développeur Web Full-Stack passionné par la création de solutions modernes et élégantes, 
-            mais également passionné de photographie.
+            mais également passionné de photographie et de jeux vidéo.
           </p>
         </div>
       </div>
