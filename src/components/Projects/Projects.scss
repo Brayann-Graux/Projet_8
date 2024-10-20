@@ -65,7 +65,6 @@
       bottom: 0;
       width: 100%;
       text-align: left;
-      padding: 20px;
       background-color: rgba(0, 0, 0, 0.8);
       color: white;
       transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -78,6 +77,7 @@
         text-align: left;
         font-size: 0.9em;
         margin-top: 10px;
+        padding: 0 20px 20px 20px;
       }
 
       .btn-container {
