@@ -24,7 +24,7 @@ const Contact = () => {
 
     emailjs
       .send(
-        'b0mOGl7bZNvqosGIA', // Remplacez par votre ID de service EmailJS
+        'service_ww2our9', // Remplacez par votre ID de service EmailJS
         'template_nyg1yub', // Remplacez par votre ID de modèle EmailJS
         {
           from_name: formData.name,
@@ -33,7 +33,7 @@ const Contact = () => {
           subject: formData.subject,
           message: formData.message,
         },
-        'YOUR_USER_ID' // Remplacez par votre ID utilisateur EmailJS
+        'b0mOGl7bZNvqosGIA' // Remplacez par votre ID utilisateur EmailJS
       )
       .then(
         (result) => {
