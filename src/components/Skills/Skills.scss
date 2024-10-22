@@ -1,4 +1,5 @@
-/* Section des compétences */
+@import '../../styles/Variables.scss';/* Section des compétences */
+
 .skills-container {
   display: flex;
   justify-content: center;
@@ -8,7 +9,7 @@
 }
 
 .skill-badge {
-  background-color: #4A90E2;  /* Couleur de fond du "bouton" */
+  background-color: $primary-blue;  /* Couleur de fond du "bouton" */
   color: white;
   padding: 10px 20px;
   margin: 10px 30px;
@@ -24,7 +25,7 @@
 
   /* Effet au survol pour rendre l'apparence dynamique */
   &:hover {
-    background-color: #357ABD;  /* Couleur au survol */
+    background-color: lighten($primary-blue, 10%);  /* Couleur au survol */
   }
 }
 

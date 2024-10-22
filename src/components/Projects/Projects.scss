@@ -8,11 +8,11 @@
   align-items: center;
   min-height: 100vh;
   text-align: center;
-  background-color: $background-color;
+  background-color: $neutral-gray;
 
   h2 {
     margin-bottom: 40px;
-    color: $primary-color;
+    color: $primary-blue;
   }
 
   .projects-container {
@@ -28,7 +28,7 @@
   .project-card {
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px $card-shadow-color;
+    box-shadow: 0 4px 8px $box-shadow;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -42,7 +42,7 @@
     
     &:hover {
       transform: scale(1.05); /* Zoom au survol */
-      box-shadow: 0 6px 12px $card-shadow-color;
+      box-shadow: 0 6px 12px $box-shadow;
 
       .project-info {
         opacity: 1; /* Afficher les détails au survol */
@@ -88,7 +88,7 @@
         margin-top: 20px;
 
         .btn {
-          background-color: $primary-color;
+          background-color: $primary-blue;
           color: white;
           padding: 10px 20px;
           border-radius: 5px;
@@ -96,7 +96,7 @@
           transition: background-color 0.3s ease;
 
           &:hover {
-            background-color: lighten($primary-color, 10%);
+            background-color: lighten($primary-blue, 10%);
           }
         }
 

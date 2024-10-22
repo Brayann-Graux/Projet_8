@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import "./Contact.scss";
 
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
