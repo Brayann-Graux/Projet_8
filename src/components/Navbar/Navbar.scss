@@ -80,27 +80,27 @@
 
     .burger-menu {
       display: flex; /* Afficher le menu burger uniquement sur les smartphones */
-      position: fixed; /* Fixer la position pour centrer */
       top: 10px; /* Ajuster selon le design */
-      left: 50%;
-      transform: translateX(-50%); /* Centrer horizontalement */
+      margin-left: 5%;
+      width: 100%;
     }
 
     .nav-links {
-      display: none; /* Masquer la liste de navigation par défaut */
+      display: flex; /* Masquer la liste de navigation par défaut */
       flex-direction: column;
       position: absolute;
-      top: 50px;
+      top: -15vh;
       right: 0;
       background-color: $primary-blue;
       width: 100%;
       text-align: center;
       gap: 10px;
       padding: 8px 0;
-    }
+      transition: top 0.5s ease-in-out;
 
-    .nav-links.active {
-      display: flex; /* Afficher la navigation si le menu est activé */
+      &.active{ 
+        top: 0;
+      }
     }
   }
 }

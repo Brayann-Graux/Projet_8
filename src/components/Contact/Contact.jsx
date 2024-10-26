@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import "./Contact.scss";
-
+import Swal from 'sweetalert2';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,6 +23,70 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Validation des champs
+    const { name, phone, email, subject, message } = formData;
+
+    if (!name) {
+      Swal.fire({
+        icon: "error",
+        title: "Erreur de saisie",
+        text: "Veuillez entrer votre nom.",
+        timer: 3000,
+      });
+      return;
+    }
+
+    if (!phone) {
+      Swal.fire({
+        icon: "error",
+        title: "Erreur de saisie",
+        text: "Veuillez entrer votre numéro de téléphone.",
+        timer: 3000,
+      });
+      return;
+    }
+
+    // Vérifiez si l'email est au bon format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      Swal.fire({
+        icon: "error",
+        title: "Erreur de saisie",
+        text: "Veuillez entrer votre adresse e-mail.",
+        timer: 3000,
+      });
+      return;
+    } else if (!emailPattern.test(email)) {
+      Swal.fire({
+        icon: "error",
+        title: "Erreur de saisie",
+        text: 'Veuillez inclure "@" dans l\'adresse e-mail.',
+        timer: 3000,
+      });
+      return;
+    }
+
+    if (!subject) {
+      Swal.fire({
+        icon: "error",
+        title: "Erreur de saisie",
+        text: "Veuillez entrer le sujet.",
+        timer: 3000,
+      });
+      return;
+    }
+
+    if (!message) {
+      Swal.fire({
+        icon: "error",
+        title: "Erreur de saisie",
+        text: "Veuillez entrer votre message.",
+        timer: 3000,
+      });
+      return;
+    }
+
+    // Si toutes les validations passent, envoyez l'email
     emailjs
       .send(
         'service_ww2our9', // Remplacez par votre ID de service EmailJS
@@ -38,13 +102,23 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
-          alert('Votre message a été envoyé avec succès !');
+          console.log(result);
+          Swal.fire({
+            title: "Envoyé!",
+            text: "Vous recevrez une réponse rapidement!",
+            icon: "success",
+            timer: 3000,
+          });
           setFormData({ name: '', phone: '', email: '', subject: '', message: '' });
         },
         (error) => {
           console.log(error.text);
-          alert("Une erreur s'est produite. Veuillez réessayer.");
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Une erreur s'est produite. Veuillez réessayer.",
+            timer: 3000,
+          });
         }
       );
   };
@@ -52,7 +126,7 @@ const Contact = () => {
   return (
     <section id="contact" className="section">
       <h2>Contactez-moi</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} noValidate>
         <input 
           type="text" 
           name="name"
