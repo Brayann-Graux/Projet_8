@@ -1,29 +1,41 @@
 import React from 'react';
-import './Skills.scss';  // Assure-toi que tu as un fichier SCSS pour les styles
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+    faHtml5, 
+    faCss3Alt, 
+    faSass, 
+    faJs, 
+    faReact, 
+    faNodeJs 
+} from '@fortawesome/free-brands-svg-icons';
+import { 
+    faDatabase 
+} from '@fortawesome/free-solid-svg-icons'; 
+import './Skills.scss'; // Assurez-vous que vous avez un fichier SCSS pour les styles
 
 const Skills = () => {
   const skills = [
-    "HTML",
-    "CSS",
-    "SCSS",
-    "JavaScript",
-    "React",
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "SQL"
+    { name: "HTML", icon: faHtml5 },
+    { name: "CSS", icon: faCss3Alt },
+    { name: "SCSS", icon: faSass },
+    { name: "JavaScript", icon: faJs },
+    { name: "React", icon: faReact },
+    { name: "Node.js", icon: faNodeJs },
+    { name: "MongoDB", icon: faDatabase },
+    { name: "SQL", icon: faDatabase },
   ];
 
   return (
     <section id="skills" className="section">
       <h2>Les Compétences Acquises</h2>
-      <div className="skills-container">
+      <ul className="skills-container">
         {skills.map((skill, index) => (
-          <span key={index} className="skill-badge">
-            {skill}
-          </span>
+          <li key={index} className="skill-badge">
+            <FontAwesomeIcon icon={skill.icon} />
+            <span className="skill-name">{skill.name}</span> {/* Nom affiché sous l'icône */}
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 };
