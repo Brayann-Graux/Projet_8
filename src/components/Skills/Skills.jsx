@@ -31,8 +31,8 @@ const Skills = () => {
       <ul className="skills-container">
         {skills.map((skill, index) => (
           <li key={index} className="skill-badge">
-            <FontAwesomeIcon icon={skill.icon} />
-            <span className="skill-name">{skill.name}</span> {/* Nom affiché sous l'icône */}
+            <FontAwesomeIcon icon={skill.icon} className="skill-icon" />
+            <span className="skill-name">{skill.name}</span> {/* Nom affiché au-dessus de l'icône */}
           </li>
         ))}
       </ul>

@@ -11,39 +11,46 @@
 }
 
 .skill-badge {
+  position: relative; /* Position relative pour le nom */
   display: flex;
   flex-direction: column; /* Positionne les éléments en colonne */
   align-items: center; /* Centre les éléments horizontalement */
   justify-content: center; /* Centre les éléments verticalement */
   background-color: $primary-blue; /* Couleur de fond du "bouton" */
   color: white;
-  padding: 65px 50px 25px 50px; /* Ajustement du padding */
+  padding: 20px; /* Ajustement du padding */
   border-radius: 30px; /* Bordure arrondie pour ressembler à un bouton */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour l'arrière-plan et la taille */
-  position: relative; /* Position relative pour le nom */
-  width: 100px; /* Largeur fixe pour les badges */
-  height: 100px; /* Hauteur fixe pour les badges */
-  
-  /* Effet de taille normal */
+  transition: background-color 0.3s ease; /* Transition pour l'arrière-plan */
+
   &:hover {
-    background-color: lighten($primary-blue, 10%); /* Couleur au survol */
-    transform: scale(1.05); /* Agrandit légèrement la case au survol */
+    background-color: lighten($primary-blue, 10%); /* Couleur au survol avec lighten() */
   }
 
   /* Style pour l'icône */
-  svg {
-    font-size: 7rem; /* Ajustez la taille de l'icône */
-    margin-bottom: 5px; /* Espace entre l'icône et le nom */
+  .skill-icon {
+    font-size: 3rem; /* Ajustez la taille de l'icône */
+    transition: opacity 0.3s ease; /* Transition pour l'apparition */
+    visibility: visible; /* Afficher l'icône par défaut */
+    opacity: 1; /* Rendre l'icône visible par défaut */
   }
 
   /* Style pour le nom */
   .skill-name {
     font-size: 1.5rem; /* Taille du texte du nom */
     text-align: center; /* Centre le texte sous l'icône */
+    position: absolute; /* Position absolue pour superposition */
+    top: 50%; /* Positionne le nom au centre vertical */
+    left: 50%; /* Centre le texte horizontalement */
+    transform: translate(-50%, -50%); /* Centre le texte */
     visibility: hidden; /* Masque le nom par défaut */
     opacity: 0; /* Rendre le texte invisible */
     transition: visibility 0s, opacity 0.3s ease; /* Transition pour l'apparition */
-    margin-top: 5px; /* Espace entre l'icône et le nom */
+  }
+
+  /* Cacher l'icône et afficher le nom au survol */
+  &:hover .skill-icon {
+    visibility: hidden; /* Cacher l'icône au survol */
+    opacity: 0; /* Rendre l'icône invisible */
   }
 
   /* Afficher le nom au survol */
