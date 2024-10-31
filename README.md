@@ -10,6 +10,8 @@ Egalement le site créer lors de ce projet, va etre de pouvoir mettre en ligne c
 ![alt text](imagesReadMe/NavBar.png)
 ### Le Profile
 ![alt text](imagesReadMe/profile.png)
+### La Navbar format burger
+![alt text](imagesReadMe/Profile%20avec%20burger%20navbar.png)
 ### Les Skills (Compétences)
 ![alt text](imagesReadMe/Skills.png)
 ### Les Projet
